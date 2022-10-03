@@ -4,7 +4,7 @@
 
 [functions]
   node_bundler = "esbuild"
-
+  directory = ".netlify/functions"
 [[plugins]]
   package = "netlify-plugin-cypress"
 
@@ -17,3 +17,7 @@
   to = "/.netlify/functions/:splat" # all function calls will go to this path
   status = 200 # ok code
   force = true # ensure to always redirect
+
+
+[graph]
+  codeGenerator = "netlify-builtin:nextjs"

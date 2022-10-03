@@ -1,0 +1,30 @@
+query ExampleQuery @netlify(id: """76c0211c-6aab-48bc-abdd-b0ded656d969""", doc: """An empty query to start from""") {
+  __typename
+}
+
+query ExampleQuery @netlify(id: null, doc: null) {
+  __typename
+}
+
+query GetLatestTracks @netlify(id: """5dbdbb92-4d19-4aad-8139-fc3d978b56f5""", doc: """
+Find the currently logged-in Spotify user's email, name, profile image, etc.
+""") {
+  me {
+    spotify {
+      recentlyPlayed(first: 1) {
+        nodes {
+          track {
+            artists {
+              name
+            }
+            name
+            externalUrls {
+              spotify
+            }
+          }
+          playedAt
+        }
+      }
+    }
+  }
+}
